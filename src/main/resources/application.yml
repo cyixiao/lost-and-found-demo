@@ -1,0 +1,53 @@
+server:
+  port: 8080
+
+manual-sql:
+  url: jdbc:mysql://localhost:3306/lost_and_found?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+  username: root
+  password: 123456
+  driver: com.mysql.cj.jdbc.Driver
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/lost_and_found?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: root
+    password: 123456
+
+  redis:
+    host: localhost
+    port: 6379
+    database: 0
+
+  mail:
+    host: smtp.163.com
+    username: lostandfound2023@163.com
+    password: MYQQLSCBRLZPEXVE
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+        debug: true
+
+mybatis:
+  mapper-locations: classpath:/mapper/*.xml
+  type-aliases-package: com.fake.demo.bean.entity
+  configuration:
+    map-underscore-to-camel-case: true
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*.xml
+  typeAliasesPackage: com.fake.demo.bean.entity
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
+
+nacos:
+  config:
+    server-addr: 127.0.0.1:8848
+    namespace: 583b08cf-1d8d-4662-894c-a40aa0601604
